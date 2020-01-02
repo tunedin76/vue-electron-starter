@@ -11,11 +11,13 @@
     },
     {
       "name": "Electron: Renderer",
-      "port": 9223,
       "request": "attach",
       "sourceMaps": true,
       "type": "chrome",
-      "webRoot": "${workspaceFolder}"
+      "webRoot": "${workspaceFolder}",
+      "port": 9222,
+      "address": "[::1]",
+      "url": "http://localhost:3000",
     }
   ],
   "version": "0.2.0"

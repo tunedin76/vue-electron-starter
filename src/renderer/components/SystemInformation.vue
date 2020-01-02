@@ -1,5 +1,16 @@
 <template>
-  <div class="box">
+  <b-card header-class="alert-danger">
+    <div slot="header">
+      <b-button
+        size="sm"
+        class="float-right"
+        @click="$router.push('home')"
+      >
+        <font-awesome-icon icon="user-secret" />
+      </b-button>
+      System Info
+    </div>
+
     <table class="table is-fullwidth">
       <thead>
         <tr>
@@ -12,28 +23,31 @@
           <td>Platform</td>
           <td>{{ platform }}</td>
         </tr>
-        <tr :key="lib" v-for="lib in Object.keys(versions)">
+        <tr
+          v-for="lib in Object.keys(versions)"
+          :key="lib"
+        >
           <td>{{ lib }}</td>
           <td>{{ versions[lib] }}</td>
         </tr>
       </tbody>
     </table>
-  </div>
+  </b-card>
 </template>
 
 <script>
 import Vue from 'vue'
 
-export default Vue.extend({
-  data() {
+export default Vue.extend( {
+  data () {
     return {
       versions: process.versions,
-      platform: require('os').platform(),
+      platform: require( 'os' ).platform(),
     }
   },
 
-  created() {},
-})
+  created () { },
+} )
 </script>
 
 <style></style>
